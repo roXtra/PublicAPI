@@ -1,0 +1,10 @@
+# @import ./authorize.http
+# @ref authorization
+GET /GetFolderDetails/100
+Accept: application/json
+authtoken: {{authorization.LoginToken}}
+
+?? status == 200
+?? body includes Fields
+?? body Id == 100
+?? body Title == Dokumente

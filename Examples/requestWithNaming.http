@@ -1,0 +1,14 @@
+@Protocol = http
+@baseurl = localhost
+
+@host = {{Protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
+
+# @name authentication
+GET /Authenticate
+Accept: application/json
+Authorization: Basic administrator admin
+
+# @ref authentication
+GET /GetFolderDetails/100
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

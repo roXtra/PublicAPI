@@ -1,0 +1,6 @@
+# @import ./authorize.http
+# @ref authorization
+@folderId = {{$input Welcher Ordner soll abgefragt werden? $value: 100}}
+GET /GetFolderDetails/{{folderId}}
+Accept: application/json
+authtoken: {{authorization.LoginToken}}
