@@ -1,9 +1,14 @@
-# @import ../RoxtraAPI/Authenticate.http
-# @ref authentication
-@folderId = {{$input Welcher Ordner soll abgefragt werden? $value: 100}}
-GET /GetFolderDetails/{{folderId}}
+/*
+## Authenticate
+
+Authentication is done by providing username and password.
+*/
+@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/{{restService}}
+
+# @name authentication
+GET /Authenticate
 Accept: application/json
-authtoken: {{authentication.LoginToken}}
+Authorization: Basic {{username}} {{password}}
 
 HTTP/1.1 200  - OK
 cache-control: private
@@ -21,5 +26,5 @@ x-content-type-options: nosniff
 report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
 content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
 content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 12:16:44 GMT
+date: Wed, 20 Mar 2024 15:05:52 GMT
 connection: close

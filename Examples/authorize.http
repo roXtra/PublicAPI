@@ -1,6 +1,0 @@
-@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
-
-# @name authorization
-GET /Authenticate
-Accept: application/json
-Authorization: Basic {{username}} {{password}}

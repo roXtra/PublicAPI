@@ -1,0 +1,5 @@
+# @import ./Authentication.http
+# @ref authentication
+GET /GetDocumentPdf/109
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

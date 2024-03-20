@@ -7,12 +7,11 @@ The VSCode module [httpYac](https://open.vscode.dev/Anweber/httpyac) is used to 
 All examples are `http` files but markdown code blocks with the `http` tag are also recognized.
 
 
-An authorization request could be done like this ([more info](./Examples/notebook.http)):
+An authorization request could be done like this, additional information can be found in the [introduction](./Introduction.http):
 
 ```http
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
 
-# @name authorization
 GET /Authenticate
 Accept: application/json
 Authorization: Basic {{username}} {{password}}

@@ -1,30 +1,31 @@
 /*
-## Get Folder Details
+## [HttpYac](https://httpyac.github.io)
+
+HttpYac lets you send and test REST, SOAP, GraphQL and gRPC requests.  
+
+### Installation
+
+* [VSCode Extension](https://open.vscode.dev/Anweber/httpyac)
+    The VSCode Extension can be used to directly send requests from the editor.
 */
 /*
-## Environment
+### Authentication
 
-The correct environment has to be chosen before executing the following requests. It holds all information to perform a successfull request to the endpoint.  
-All environments are stored in the `/env` directory. Currently the `test.env` is the only environment for local testing.
-
-* VSCode:
-    - The [httpYac](https://open.vscode.dev/Anweber/httpyac) module enables choosing a predefined environment on the sidebar.
-
-* CLI:
-    - The environment can be chosen with the `-e` option.
+The following requests require an auth token. This auth token is fetched first.  
+You can change the values of 'Protocol' and 'baseurl' to target your roxtra installation.
+Ensure 'username' and 'password' are correct to get a valid LoginToken.
 */
-/*
-### Auhentication first
-*/
-@Protocol = http
+@protocol = http
 @baseurl = localhost
+@username = administrator
+@password = admin
 
-@host = {{Protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
+@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
 
 # @name authentication
 GET /Authenticate
 Accept: application/json
-Authorization: Basic administrator admin
+Authorization: Basic {{username}} {{password}}
 
 HTTP/1.1 200  - OK
 cache-control: private
@@ -42,11 +43,8 @@ x-content-type-options: nosniff
 report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
 content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
 content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 07:34:23 GMT
+date: Wed, 20 Mar 2024 15:27:13 GMT
 connection: close
-/*
-### Get folder details by using the requested LoginToken
-*/
 ###
 # @ref authentication
 GET /GetFolderDetails/100
@@ -69,17 +67,29 @@ x-content-type-options: nosniff
 report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
 content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
 content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 07:34:27 GMT
+date: Wed, 20 Mar 2024 15:27:13 GMT
 connection: close
 /*
-The request can be shortened by importing the authorization request
+## Environment
+
+The following request uses the [Authenticate file](./RoxtraAPI/Authenticate.http) before executing the actual request.  
+The correct environment has to be chosen for the authentication to work. It holds all information to perform a successfull request to the endpoint.  
+All environments are stored in the `/env` directory. Currently the `test.env` is the only environment for local testing.
+
+Choosing the environment:
+
+* VSCode:
+    - The [httpYac](https://open.vscode.dev/Anweber/httpyac) module enables choosing a predefined environment on the sidebar.
+
+* CLI:
+    - The environment can be chosen with the `-e` option.
 */
 ###
-# @import ./authorize.http
-# @ref authorization
+# @import ./RoxtraAPI/Authenticate.http
+# @ref authentication
 GET /GetFolderDetails/100
 Accept: application/json
-authtoken: {{authorization.LoginToken}}
+authtoken: {{authentication.LoginToken}}
 
 HTTP/1.1 200  - OK
 cache-control: private
@@ -97,5 +107,5 @@ x-content-type-options: nosniff
 report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
 content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
 content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 07:59:58 GMT
+date: Wed, 20 Mar 2024 15:27:13 GMT
 connection: close
