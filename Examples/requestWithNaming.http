@@ -6,7 +6,7 @@
 # @name authentication
 GET /Authenticate
 Accept: application/json
-Authorization: Basic administrator admin
+Authorization: Basic {{username}} {{password}}
 
 # @ref authentication
 GET /GetFolderDetails/100

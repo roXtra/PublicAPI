@@ -5,7 +5,7 @@
 
 GET /Authenticate
 Accept: application/json
-Authorization: Basic administrator admin
+Authorization: Basic {{username}} {{password}}
 
 {{
     $global.authToken = response.parsedBody.LoginToken

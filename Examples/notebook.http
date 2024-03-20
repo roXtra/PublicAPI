@@ -1,0 +1,101 @@
+/*
+## Get Folder Details
+*/
+/*
+## Environment
+
+The correct environment has to be chosen before executing the following requests. It holds all information to perform a successfull request to the endpoint.  
+All environments are stored in the `/env` directory. Currently the `test.env` is the only environment for local testing.
+
+* VSCode:
+    - The [httpYac](https://open.vscode.dev/Anweber/httpyac) module enables choosing a predefined environment on the sidebar.
+
+* CLI:
+    - The environment can be chosen with the `-e` option.
+*/
+/*
+### Auhentication first
+*/
+@Protocol = http
+@baseurl = localhost
+
+@host = {{Protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
+
+# @name authentication
+GET /Authenticate
+Accept: application/json
+Authorization: Basic administrator admin
+
+HTTP/1.1 200  - OK
+cache-control: private
+transfer-encoding: chunked
+content-type: application/json; charset=utf-8
+server: 
+x-powered-by: 
+x-roxtra-statuscode: 200
+x-roxtra-version: 9.84.0
+roxtraresponse: 200
+referrer-policy: strict-origin-when-cross-origin
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
+content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
+content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
+date: Wed, 20 Mar 2024 07:34:23 GMT
+connection: close
+/*
+### Get folder details by using the requested LoginToken
+*/
+###
+# @ref authentication
+GET /GetFolderDetails/100
+Accept: application/json
+authtoken: {{authentication.LoginToken}}
+
+HTTP/1.1 200  - OK
+cache-control: private
+transfer-encoding: chunked
+content-type: application/json; charset=utf-8
+server: 
+x-powered-by: 
+x-roxtra-statuscode: 200
+x-roxtra-version: 9.84.0
+roxtraresponse: 200
+referrer-policy: strict-origin-when-cross-origin
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
+content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
+content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
+date: Wed, 20 Mar 2024 07:34:27 GMT
+connection: close
+/*
+The request can be shortened by importing the authorization request
+*/
+###
+# @import ./authorize.http
+# @ref authorization
+GET /GetFolderDetails/100
+Accept: application/json
+authtoken: {{authorization.LoginToken}}
+
+HTTP/1.1 200  - OK
+cache-control: private
+transfer-encoding: chunked
+content-type: application/json; charset=utf-8
+server: 
+x-powered-by: 
+x-roxtra-statuscode: 200
+x-roxtra-version: 9.84.0
+roxtraresponse: 200
+referrer-policy: strict-origin-when-cross-origin
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
+content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
+content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
+date: Wed, 20 Mar 2024 07:59:58 GMT
+connection: close
