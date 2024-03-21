@@ -5,8 +5,8 @@ HttpYac lets you send and test REST, SOAP, GraphQL and gRPC requests.
 
 ### Installation
 
-* [VSCode Extension](https://open.vscode.dev/Anweber/httpyac)
-    The VSCode Extension can be used to directly send requests from the editor.
+* [httpYac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) is a VSCode Extension which can be used to directly send requests from the editor.
+* [httpBook](https://marketplace.visualstudio.com/items?itemName=anweber.httpbook) allows editing http files as a jupyter notebook. Markdown comments can be mixed with REST requests and responses will be saved. Responses can be cleared by deleting their cell.
 */
 /*
 ### Authentication
@@ -26,49 +26,11 @@ Ensure 'username' and 'password' are correct to get a valid LoginToken.
 GET /Authenticate
 Accept: application/json
 Authorization: Basic {{username}} {{password}}
-
-HTTP/1.1 200  - OK
-cache-control: private
-transfer-encoding: chunked
-content-type: application/json; charset=utf-8
-server: 
-x-powered-by: 
-x-roxtra-statuscode: 200
-x-roxtra-version: 9.84.0
-roxtraresponse: 200
-referrer-policy: strict-origin-when-cross-origin
-x-frame-options: SAMEORIGIN
-x-xss-protection: 1; mode=block
-x-content-type-options: nosniff
-report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
-content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
-content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 15:27:13 GMT
-connection: close
 ###
 # @ref authentication
 GET /GetFolderDetails/100
 Accept: application/json
 authtoken: {{authentication.LoginToken}}
-
-HTTP/1.1 200  - OK
-cache-control: private
-transfer-encoding: chunked
-content-type: application/json; charset=utf-8
-server: 
-x-powered-by: 
-x-roxtra-statuscode: 200
-x-roxtra-version: 9.84.0
-roxtraresponse: 200
-referrer-policy: strict-origin-when-cross-origin
-x-frame-options: SAMEORIGIN
-x-xss-protection: 1; mode=block
-x-content-type-options: nosniff
-report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
-content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
-content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 15:27:13 GMT
-connection: close
 /*
 ## Environment
 
@@ -79,7 +41,7 @@ All environments are stored in the `/env` directory. Currently the `test.env` is
 Choosing the environment:
 
 * VSCode:
-    - The [httpYac](https://open.vscode.dev/Anweber/httpyac) module enables choosing a predefined environment on the sidebar.
+    - The [httpYac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) module enables choosing a predefined environment on the sidebar.
 
 * CLI:
     - The environment can be chosen with the `-e` option.
@@ -90,22 +52,3 @@ Choosing the environment:
 GET /GetFolderDetails/100
 Accept: application/json
 authtoken: {{authentication.LoginToken}}
-
-HTTP/1.1 200  - OK
-cache-control: private
-transfer-encoding: chunked
-content-type: application/json; charset=utf-8
-server: 
-x-powered-by: 
-x-roxtra-statuscode: 200
-x-roxtra-version: 9.84.0
-roxtraresponse: 200
-referrer-policy: strict-origin-when-cross-origin
-x-frame-options: SAMEORIGIN
-x-xss-protection: 1; mode=block
-x-content-type-options: nosniff
-report-to: { 'group': 'lbcsp', 'max-age': 10886400, 'endpoints': [{ 'url': 'https://csp.roxtra.com:7246/report' }] }
-content-security-policy-report-only: report-uri https://csp.roxtra.com:7246/report; report-to lbcsp; default-src 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; form-action 'self' https://login.microsoftonline.com; frame-ancestors 'self' https://login.microsoftonline.com; base-uri 'self'; object-src 'self'; connect-src 'self' data:; worker-src 'self' blob:;
-content-security-policy: default-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; plugin-types 'none';
-date: Wed, 20 Mar 2024 15:27:13 GMT
-connection: close
