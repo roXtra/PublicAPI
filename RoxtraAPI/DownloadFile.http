@@ -1,5 +1,0 @@
-# @import ./Authenticate.http
-# @ref authentication
-GET /Export/109/data
-Accept: application/json
-authtoken: {{authentication.LoginToken}}

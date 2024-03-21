@@ -1,3 +1,8 @@
+/*
+# Get RoXtra Version
+
+A simple request is made to get the roXtra version.
+*/
 # @import ./Authenticate.http
 # @ref authentication
 GET /GetRoxtraVersion

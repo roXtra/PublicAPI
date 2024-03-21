@@ -1,11 +1,11 @@
 /*
-## Get Document Pdf
+## Get Document
 
-Gets a document by its id as pdf representation.  
+Gets a document by its id.  
 The requested file is directly shown in VSCode if httpBook is _not_ used.
 */
 # @import ./Authenticate.http
 # @ref authentication
-GET /GetDocumentPdf/109
+GET /GetDocument/109
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

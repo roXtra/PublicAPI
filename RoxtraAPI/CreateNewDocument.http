@@ -1,5 +1,8 @@
 /*
 ## Create New Document
+
+A new document is created with a local file specified in the current environment.  
+The file will be encoded in base64 and then send to the endpoint.
 */
 {{
 	const fs = require('node:fs');
