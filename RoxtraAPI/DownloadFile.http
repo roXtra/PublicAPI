@@ -1,5 +1,5 @@
-# @import ./Authentice.http
+# @import ./Authenticate.http
 # @ref authentication
-GET /GetDocumentPdf/109
+GET /Export/109/data
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

@@ -1,3 +1,20 @@
+/*
+## Create New Document
+*/
+{{
+	const fs = require('node:fs');
+	const path = require('node:path');
+
+	try {
+		const data = fs.readFileSync(__dirname + '/' + filePath, 'utf8');
+		exports.fileAsBase64 = Buffer.from(data.toString()).toString('base64');
+		exports.fileName = path.parse(filePath).base;
+	} catch (error) {
+		console.error(error);
+	}
+}}
+
+
 # @import ./Authenticate.http
 # @ref authentication
 POST /CreateNewDocument
@@ -22,7 +39,7 @@ authtoken: {{authentication.LoginToken}}
 	],
 	"FileData": 
 	{
-		"Base64EncodedData": "SGVsbG8gV29ybGQh",
-		"Filename": "Test.txt",
+		"Base64EncodedData": "{{fileAsBase64}}",
+		"Filename": "{{fileName}}",
 	}
 }
