@@ -1,7 +1,11 @@
 # PublicAPI
 
+This repo uses [httpYac](https://httpyac.github.io) to make REST calls to the roXtra API.  
+Requests can be made with ease and can be exexcuted from VSCode.  
+  
+An introduction on how to perform requests and what else is possible, can be found [here](./Introduction.http).
 
-### Installation
+### Short Intro
 
 * [httpYac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) is a VSCode Extension which can be used to directly send requests from the editor.
 * [httpBook](https://marketplace.visualstudio.com/items?itemName=anweber.httpbook) allows editing http files as a jupyter notebook. Markdown comments can be mixed with REST requests and responses will be saved. Responses can be cleared by deleting their cell.
