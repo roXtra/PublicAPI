@@ -1,0 +1,10 @@
+/*
+## Create Export
+
+A simple request is made to create a new export.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+POST /Export
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

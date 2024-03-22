@@ -1,0 +1,12 @@
+/*
+## Get Escalation Details
+
+A simple request is made to get details of an escalation.
+*/
+@escalationID = 0
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetEscalationDetails/{{escalationID}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

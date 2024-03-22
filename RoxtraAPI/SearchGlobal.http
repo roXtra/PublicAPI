@@ -1,0 +1,29 @@
+/*
+## Search Global
+
+A search request is made for a specific file.
+*/
+@searchTerm = 'Pdf'
+@docType = 0
+@maxResults = 50
+
+# @import ./Authenticate.http
+# @ref authentication
+POST /SearchGlobal/{{searchTerm}}/{{docType}}/{{maxResults}}
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+{
+	"IsGlobalSearch": true,
+	"IsPersonalFolderSearch": false,
+	"IsAdvancedSearch": false,
+	"IsSpecialSearch": false,
+	"ParentObjectOnly": false,
+	"IsFolderSearch": false,
+	"IsRecordSearch": false,
+	"IsArchiveSearch": false,
+	"Mode": 1,
+	"Type": 1,
+	"DisplayType": 1
+}

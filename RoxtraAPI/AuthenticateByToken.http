@@ -1,0 +1,16 @@
+/*
+## Authenticate By Token
+
+Authentication is done by using a token.
+*/
+@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/{{restService}}
+@token = ""
+
+# @name authentication
+POST /AuthenticateByToken
+Accept: application/json
+Content-Type: application/json
+
+{
+    "Token": {{token}}
+}

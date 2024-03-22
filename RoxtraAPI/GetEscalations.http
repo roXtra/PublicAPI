@@ -1,0 +1,10 @@
+/*
+## Get Escalations
+
+A simple request is made to get the escalation list.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetEscalations
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

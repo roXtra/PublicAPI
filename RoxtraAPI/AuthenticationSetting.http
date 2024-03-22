@@ -1,0 +1,10 @@
+/*
+## Authentication Setting
+
+A simple request is made to get the authentication setting.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /AuthenticationSetting
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

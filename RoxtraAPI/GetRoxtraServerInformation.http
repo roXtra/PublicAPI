@@ -1,0 +1,10 @@
+/*
+# Get Roxtra Server Information
+
+A simple request is made to get the server information
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetRoxtraServerInformation
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

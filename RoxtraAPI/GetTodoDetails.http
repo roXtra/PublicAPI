@@ -1,0 +1,12 @@
+/*
+## Get Todo Details
+
+A simple request is made to get details of a todo.
+*/
+@todoID = 0
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetTodoDetails/{{todoID}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

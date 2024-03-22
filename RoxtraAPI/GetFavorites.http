@@ -1,0 +1,10 @@
+/*
+## Get Favorites
+
+A simple request is made to get the favorite list.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetFavorites
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

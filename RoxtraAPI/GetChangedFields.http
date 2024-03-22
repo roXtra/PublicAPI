@@ -1,0 +1,21 @@
+/*
+## Get Changed Fields
+
+A simple request is made to get the changed fields of a file since a given timestamp.
+*/
+{{
+	exports.timeStamp = Date.parse("2021-04-13T12:00:00.000Z");
+}}
+
+# @import ./Authenticate.http
+# @ref authentication
+POST /GetChangedFiles
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+{
+    "RefDate":"\/Date({{timeStamp}})\/",
+    "DocTypeIDs":[],
+    "ValidStatusIDs":[130]
+}

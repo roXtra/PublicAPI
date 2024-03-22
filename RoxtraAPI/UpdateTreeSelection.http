@@ -1,0 +1,47 @@
+/*
+## Update Tree Selection
+
+A simple request is made to update the current tree selection.
+*/
+@selectionID = EndProduct
+
+# @import ./Authenticate.http
+# @ref authentication
+POST /UpdateTreeSelection/{{selectionID}}
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+[{
+    "ID": -1,
+    "ExternalID": "",
+    "Text": "Level 1",
+    "Items": [
+        {
+            "ID": -1,
+            "ExternalID": "",
+            "Text": "Level 1.1",
+            "Items": [
+                {
+                    "ID": -1,
+                    "ExternalID": "",
+                    "Text": "Level 1.1.1",
+                    "Items": [
+                        {
+                            "ID": -1,
+                            "ExternalID": "",
+                            "Text": "Level 1.1.1.1",
+                            "Items": []
+                        },
+                        {
+                            "ID": -1,
+                            "ExternalID": "",
+                            "Text": "Level 1.1.1.2",
+                            "Items": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}]

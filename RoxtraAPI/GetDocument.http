@@ -4,8 +4,10 @@
 Gets a document by its id.  
 The requested file is directly shown in VSCode if httpBook is _not_ used.
 */
+@documentID = 109
+
 # @import ./Authenticate.http
 # @ref authentication
-GET /GetDocument/109
+GET /GetDocument/{{documentID}}
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

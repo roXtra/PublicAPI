@@ -1,13 +1,14 @@
 /*
-## Get Document Pdf
+## Get Document Pdf Hash
 
-Gets a document by its id as pdf representation.  
+Gets a document by its id and hash as pdf representation.  
 The requested file is directly shown in VSCode if httpBook is _not_ used.
 */
 @documentID = 109
+@documentHash = 0c36302b-0200-4367-b084-43ddcc1e36c5
 
 # @import ./Authenticate.http
 # @ref authentication
-GET /GetDocumentPdf/{{documentID}}
+GET /GetDocumentPdfHash/{{documentID}}/{{documentHash}}
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

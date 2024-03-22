@@ -1,0 +1,10 @@
+/*
+## Get My User
+
+A simple request is made to get information of the current user.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetMyUser
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

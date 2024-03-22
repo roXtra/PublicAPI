@@ -1,0 +1,13 @@
+/*
+## Set To Do Status
+
+A simple request is made to set the status of a todo.
+*/
+@todoID = 0
+@todoDone = true
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /SetToDoStatus/{{todoID}}/{{todoDone}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

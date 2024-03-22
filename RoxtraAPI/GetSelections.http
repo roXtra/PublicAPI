@@ -1,0 +1,10 @@
+/*
+## Get Selections
+
+A simple request is made to get the selection list.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetSelections
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

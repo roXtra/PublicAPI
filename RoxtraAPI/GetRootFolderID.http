@@ -1,0 +1,10 @@
+/*
+# Get Root Folder ID
+
+A simple request is made to get the root folder ID.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetRootFolderID
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

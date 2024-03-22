@@ -1,0 +1,12 @@
+/*
+# Get Personal Folder Content
+
+A simple request is made to get the personal folder content by a folder ID.
+*/
+@folderID = 100
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetPersonalFolderContent/{{folderID}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

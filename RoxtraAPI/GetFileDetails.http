@@ -1,0 +1,12 @@
+/*
+## Get File Details
+
+A simple request is made to get the file details by a file ID.
+*/
+@fileID = 109
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetFileDetails/{{fileID}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

@@ -1,0 +1,30 @@
+/*
+## Search In Folder
+
+A search request is made in a folder for a specific file.
+*/
+@searchTerm = 'Test'
+@folderID = 100
+@docType = 0
+@maxResults = 50
+
+# @import ./Authenticate.http
+# @ref authentication
+POST /SearchInFolder/{{searchTerm}}/{{folderID}}/{{docType}}/{{maxResults}}
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+{
+	"IsGlobalSearch": false,
+	"IsPersonalFolderSearch": false,
+	"IsAdvancedSearch": false,
+	"IsSpecialSearch": false,
+	"ParentObjectOnly": false,
+	"IsFolderSearch": true,
+	"IsRecordSearch": false,
+	"IsArchiveSearch": false,
+	"Mode": 2,
+	"Type": 1,
+	"DisplayType": 1
+}

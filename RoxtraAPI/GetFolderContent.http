@@ -1,12 +1,12 @@
 /*
-## Get Folder Details
+# Get Folder Content
 
-A simple request is made to get the folder details by a folder ID.
+A simple request is made to get the folder content by a folder ID.
 */
 @folderID = 100
 
 # @import ./Authenticate.http
 # @ref authentication
-GET /GetFolderDetails/{{folderID}}
+GET /GetFolderContent/{{folderID}}
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

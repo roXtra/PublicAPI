@@ -1,0 +1,10 @@
+/*
+## Get Exports
+
+A simple request is made to get the list of exports.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /Export
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

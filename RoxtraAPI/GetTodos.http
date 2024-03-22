@@ -1,0 +1,10 @@
+/*
+## Get Todos
+
+A simple request is made to get the todo list.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetTodos
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

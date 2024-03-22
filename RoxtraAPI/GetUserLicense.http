@@ -1,0 +1,10 @@
+/*
+# Get User License
+
+A simple request is made to get the user license.
+*/
+# @import ./Authenticate.http
+# @ref authentication
+GET /GetUserLicense
+Accept: application/json
+authtoken: {{authentication.LoginToken}}

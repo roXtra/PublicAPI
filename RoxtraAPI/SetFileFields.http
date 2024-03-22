@@ -1,0 +1,20 @@
+/*
+## Set File Fields
+
+A simple request is made to set the fields of a file by its ID.
+*/
+@fileID = 109
+
+# @import ./Authenticate.http
+# @ref authentication
+POST /SetFileFields/{{fileID}}
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+[
+	{
+		"Id": "Description",
+		"Value": "new description, set with api"
+	}
+]

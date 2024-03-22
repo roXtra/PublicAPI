@@ -1,0 +1,12 @@
+/*
+## Get Export
+
+A simple request is made to get an export by its ID.
+*/
+@exportID = 1
+
+# @import ./Authenticate.http
+# @ref authentication
+GET /Export/{{exportID}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}
