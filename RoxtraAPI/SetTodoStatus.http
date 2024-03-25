@@ -1,7 +1,7 @@
 /*
 ## Set To Do Status
 
-A simple request is made to set the status of a todo.
+Set the status of a todo. this function must be enabled via the configuration. (EnableMobileEdit)
 */
 @todoID = 0
 @todoDone = true

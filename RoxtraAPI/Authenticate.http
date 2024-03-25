@@ -1,7 +1,13 @@
 /*
 ## Authenticate
 
-Authentication is done by providing username and password.
+Logs a user on to the API with a user name and password. A roXtra Auth Token is sent as return.
+
+Info for Basic Auth:
+
+https://en.wikipedia.org/wiki/Basic_access_authentication
+
+Credentials: Base64 encoded (username:password)
 */
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/{{restService}}
 

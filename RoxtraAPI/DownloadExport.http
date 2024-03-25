@@ -1,7 +1,11 @@
 /*
 ## Download Export
 
-A simple request is made to get download an export by its ID.
+Returns a zip-File as octed-stream of requested export.
+
+Response header "checksum" contains default MD5 checksum hash of the file.
+
+Response header "Content-Disposition" contains filename.
 */
 @exportID = 1
 

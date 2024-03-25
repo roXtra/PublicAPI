@@ -1,12 +1,29 @@
 /*
 ## Search In Folder
 
-A search request is made in a folder for a specific file.
+Searches for documents within a specified folder.
+
+Used Enums:
+
+* Mode - SearchMode  
+and - 0  
+or - 1  
+exact - 2
+
+* Type - SearchType [Flagable]  
+fields = 1  
+fulltext = 2
+
+* DisplayType  
+Depending on the folder views in roXtra
 */
 @searchTerm = 'Test'
 @folderID = 100
 @docType = 0
 @maxResults = 50
+@searchMode = 2
+@searchType = 1
+@displayType = 1
 
 # @import ./Authenticate.http
 # @ref authentication
@@ -24,7 +41,7 @@ authtoken: {{authentication.LoginToken}}
 	"IsFolderSearch": true,
 	"IsRecordSearch": false,
 	"IsArchiveSearch": false,
-	"Mode": 2,
-	"Type": 1,
-	"DisplayType": 1
+	"Mode": {{searchMode}},
+	"Type": {{searchType}},
+	"DisplayType": {{displayType}}
 }

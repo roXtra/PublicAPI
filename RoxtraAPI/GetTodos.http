@@ -1,7 +1,7 @@
 /*
 ## Get Todos
 
-A simple request is made to get the todo list.
+Returns all open todos for the current user
 */
 # @import ./Authenticate.http
 # @ref authentication

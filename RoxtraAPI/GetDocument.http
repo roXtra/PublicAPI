@@ -1,7 +1,7 @@
 /*
 ## Get Document
 
-Gets a document by its id.  
+Returns the original document by its id.  
 The requested file is directly shown in VSCode if httpBook is _not_ used.
 */
 @documentID = 109

@@ -1,7 +1,7 @@
 /*
 ## Get File Details
 
-A simple request is made to get the file details by a file ID.
+Returns all information about a specific document.
 */
 @fileID = 109
 

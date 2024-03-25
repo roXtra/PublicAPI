@@ -1,7 +1,7 @@
 /*
 # Get Default Folder ID
 
-A simple request is made to get the default folder ID.
+Returns the default folder of the user. (e.g. Startfolder if set)
 */
 # @import ./Authenticate.http
 # @ref authentication

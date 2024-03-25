@@ -1,7 +1,7 @@
 /*
 ## Get Exports
 
-A simple request is made to get the list of exports.
+Returns a list of exports.
 */
 # @import ./Authenticate.http
 # @ref authentication

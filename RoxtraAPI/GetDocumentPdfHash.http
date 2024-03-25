@@ -1,7 +1,7 @@
 /*
 ## Get Document Pdf Hash
 
-Gets a document by its id and hash as pdf representation.  
+Returns a file stream of the requested roXtra pdf view of the file if the current file is different from the file on the server. The response is a file and the hash of the file in the header (HEADER: roxtra-file-hash:. This hash is used for later checks. Up to roXtra version 7.103 the MD5 hash of the file was used for this.  
 The requested file is directly shown in VSCode if httpBook is _not_ used.
 */
 @documentID = 109

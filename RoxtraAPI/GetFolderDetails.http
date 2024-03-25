@@ -1,7 +1,7 @@
 /*
 ## Get Folder Details
 
-A simple request is made to get the folder details by a folder ID.
+Returns all information of the specified folder.
 */
 @folderID = 100
 

@@ -1,10 +1,15 @@
 /*
 ## Create Export
 
-A simple request is made to create a new export.
+Creates new export for the current user (token) with the right structure of the userid given in the json body.
+
+Returns the ID of the new export.
 */
 # @import ./Authenticate.http
 # @ref authentication
 POST /Export
 Accept: application/json
+Content-Type: application/json
 authtoken: {{authentication.LoginToken}}
+
+1

@@ -1,7 +1,7 @@
 /*
 ## Get Export
 
-A simple request is made to get an export by its ID.
+Returns metadata of requested export.
 */
 @exportID = 1
 

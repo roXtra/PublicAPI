@@ -1,7 +1,7 @@
 /*
 ## Get File Simple
 
-A simple request is made to get the file by a file ID.
+Returns reduced information about a specific document.
 */
 @fileID = 109
 

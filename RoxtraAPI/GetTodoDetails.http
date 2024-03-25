@@ -1,7 +1,7 @@
 /*
 ## Get Todo Details
 
-A simple request is made to get details of a todo.
+Returns the details of the specified todo.
 */
 @todoID = 0
 

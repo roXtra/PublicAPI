@@ -1,7 +1,7 @@
 /*
 ## Get Changed Files
 
-A simple request is made to get a list of changed files since a given timestamp.
+Returns a list of changed files since a given timestamp.
 */
 @refDate = {{$datetime iso8601 14 d}}
 

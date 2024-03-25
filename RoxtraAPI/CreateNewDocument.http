@@ -1,8 +1,22 @@
 /*
 ## Create New Document
 
-A new document is created with a local file specified in the current environment.  
-The file will be encoded in base64 and then send to the endpoint.
+Creates a new document of the specified document type in the target folder.
+
+DestinationType Enums:
+
+```csharp
+public enum ObjectType
+{
+    none = 0,
+    folder = 1,
+    record = 2,
+    file = 3,
+    page = 4
+}
+```
+
+Only folder and record DestinationType is allowed. The file content must be encoded in base64.
 */
 {{
 	const fs = require('node:fs');

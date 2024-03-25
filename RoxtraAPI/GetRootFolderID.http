@@ -1,7 +1,7 @@
 /*
 # Get Root Folder ID
 
-A simple request is made to get the root folder ID.
+Returns the ID of the root folder.
 */
 # @import ./Authenticate.http
 # @ref authentication

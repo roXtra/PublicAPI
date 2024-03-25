@@ -1,7 +1,7 @@
 /*
 ## Get Escalations
 
-A simple request is made to get the escalation list.
+Returns all escalations of the current user.
 */
 # @import ./Authenticate.http
 # @ref authentication

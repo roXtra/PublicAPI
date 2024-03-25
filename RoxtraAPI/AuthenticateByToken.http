@@ -1,7 +1,7 @@
 /*
 ## Authenticate By Token
 
-Authentication is done by using a token.
+Authentication via an Azure Token. This method converts the Azure token into a roXtra token.
 */
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/{{restService}}
 @token = ""

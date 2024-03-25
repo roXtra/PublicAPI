@@ -1,7 +1,7 @@
 /*
 ## Get Favorites
 
-A simple request is made to get the favorite list.
+Returns all favorites of the current user.
 */
 # @import ./Authenticate.http
 # @ref authentication

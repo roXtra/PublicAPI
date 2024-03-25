@@ -1,7 +1,7 @@
 /*
 ## Set File Fields
 
-A simple request is made to set the fields of a file by its ID.
+Updates Fields of the specified document.
 */
 @fileID = 109
 

@@ -1,13 +1,20 @@
 /*
 ## Update Tree Selection
 
-A simple request is made to update the current tree selection.
+Endpoint to update tree views.
+Post your complete view in order to update / create entries of the corresponding roXtra view. Entries which are not included in this request are deleted in roXtra.
+
+Entries will be matched by
+* ID
+* or if ID = -1 by ExternalID
+* or if preferExternalID is provided, ID is ignored
 */
 @selectionID = EndProduct
+@preferExternalID = 1
 
 # @import ./Authenticate.http
 # @ref authentication
-POST /UpdateTreeSelection/{{selectionID}}
+POST /UpdateTreeSelection/{{selectionID}}?{{preferExternalID}}
 Accept: application/json
 Content-Type: application/json
 authtoken: {{authentication.LoginToken}}

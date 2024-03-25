@@ -1,7 +1,7 @@
 /*
-# Get Folder Content
+## Get Folder Content
 
-A simple request is made to get the folder content by a folder ID.
+Returns the content of the specified folder.
 */
 @folderID = 100
 

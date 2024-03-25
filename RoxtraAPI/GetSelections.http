@@ -1,7 +1,7 @@
 /*
 ## Get Selections
 
-A simple request is made to get the selection list.
+Returns all available selections.
 */
 # @import ./Authenticate.http
 # @ref authentication

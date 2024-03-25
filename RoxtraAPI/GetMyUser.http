@@ -1,7 +1,7 @@
 /*
 ## Get My User
 
-A simple request is made to get information of the current user.
+Returns data of the current user.
 */
 # @import ./Authenticate.http
 # @ref authentication

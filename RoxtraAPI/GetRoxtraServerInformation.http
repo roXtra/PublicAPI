@@ -1,7 +1,7 @@
 /*
 # Get Roxtra Server Information
 
-A simple request is made to get the server information
+roXtra Server Information. Additional info like **BaseURL**, **DefaultLanguage** and the **EFormBaseURL**.
 */
 # @import ./Authenticate.http
 # @ref authentication

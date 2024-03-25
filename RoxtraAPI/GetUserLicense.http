@@ -1,7 +1,7 @@
 /*
 # Get User License
 
-A simple request is made to get the user license.
+Returns the license of the current user.
 */
 # @import ./Authenticate.http
 # @ref authentication

@@ -1,12 +1,20 @@
 /*
 # Get Personal Folder Content
 
-A simple request is made to get the personal folder content by a folder ID.
+Content of the personal folder.
+
+Use the type parameter to specify what kind of content is returned:
+
+*0 - Ordner und Dateien*
+
+*1 - Dateien*
+
+*2 - Ordner*
 */
-@folderID = 100
+@contentType = 0
 
 # @import ./Authenticate.http
 # @ref authentication
-GET /GetPersonalFolderContent/{{folderID}}
+GET /GetPersonalFolderContent/{{contentType}}
 Accept: application/json
 authtoken: {{authentication.LoginToken}}
