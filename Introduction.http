@@ -36,7 +36,7 @@ authtoken: {{authentication.LoginToken}}
 
 The following request uses the [Authenticate file](./RoxtraAPI/Authenticate.http) before executing the actual request.  
 The correct environment has to be chosen for the authentication to work. It holds all information to perform a successfull request to the endpoint.  
-All environments are stored in the `/env` directory. Currently the `test.env` is the only environment for local testing.
+All environments are stored in the `/env` directory.
 
 Choosing the environment:
 

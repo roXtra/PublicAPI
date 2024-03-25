@@ -17,7 +17,7 @@ fulltext = 2
 * DisplayType  
 Depending on the folder views in roXtra
 */
-@searchTerm = 'Test'
+@searchTerm = 'Sample'
 @folderID = 100
 @docType = 0
 @maxResults = 50

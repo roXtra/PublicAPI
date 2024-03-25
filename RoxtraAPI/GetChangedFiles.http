@@ -2,6 +2,12 @@
 ## Get Changed Files
 
 Returns a list of changed files since a given timestamp.
+
+Parameter | Description
+----------|----------
+RefDate | Files changed (release date) after this date will be collected. Format: ASP.NET Json Date.
+DocTypeIDs | specify doctypes as filter or leave empty to query all doctypes
+ValidStatusID | specify status IDs or leave empty to accept any status. e.g. only released documents = [130]
 */
 @refDate = {{$datetime iso8601 14 d}}
 
