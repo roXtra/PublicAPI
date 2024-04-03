@@ -1,0 +1,43 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["github>roXtra/Internal.RenovateConfig"],
+	"branchConcurrentLimit": 6,
+	"packageRules": [
+		{
+			"groupName": "protobuf-ts",
+			"matchPackagePatterns": ["^@protobuf-ts/"]
+		},
+		{
+			"groupName": "eslint",
+			"matchPackageNames": [
+				"eslint",
+				"eslint-config-prettier",
+				"eslint-plugin-deprecation",
+				"eslint-plugin-no-only-tests",
+				"eslint-plugin-prettier",
+				"eslint-plugin-react",
+				"@typescript-eslint/eslint-plugin",
+				"@typescript-eslint/parser"
+			]
+		},
+		{
+			"groupName": "vite",
+			"matchPackageNames": ["vite", "vite-plugin-pwa"],
+			"matchPackagePatterns": ["^@vitejs/"]
+		},
+		{
+			"groupName": "vitest",
+			"matchPackageNames": ["vitest"],
+			"matchPackagePatterns": ["^@vitest/"]
+		},
+		{
+			"groupName": "redux",
+			"matchPackageNames": ["react-redux"],
+			"matchPackagePatterns": ["^@reduxjs/"]
+		},
+		{
+			"groupName": "react-oidc",
+			"matchPackageNames": ["oidc-client-ts", "react-oidc-context"]
+		}
+	]
+}
