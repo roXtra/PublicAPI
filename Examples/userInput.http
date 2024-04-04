@@ -1,6 +1,6 @@
 # @import ../RoxtraAPI/Authenticate.http
 # @ref authentication
-@folderId = {{$input Welcher Ordner soll abgefragt werden? $value: 100}}
+@folderId = {{$input Which folder should be requested? $value: 100}}
 GET /GetFolderDetails/{{folderId}}
 Accept: application/json
 authtoken: {{authentication.LoginToken}}

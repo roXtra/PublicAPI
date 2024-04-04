@@ -12,15 +12,15 @@ HttpYac lets you send and test REST, SOAP, GraphQL and gRPC requests.
 ### Authentication
 
 The following requests require an auth token. This auth token is fetched first.  
-You can change the values of 'Protocol' and 'baseurl' to target your roxtra installation.
+You can change the values of 'protocol' and 'baseurl' to target your roxtra installation.
 Ensure 'username' and 'password' are correct to get a valid LoginToken.
 */
-@protocol = http
+@protocol = https
 @baseurl = localhost
 @username = administrator
 @password = admin
 
-@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
+@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rests
 
 # @name authentication
 GET /Authenticate
@@ -38,10 +38,43 @@ The following request uses the [Authenticate file](./RoxtraAPI/Authenticate.http
 The correct environment has to be chosen for the authentication to work. It holds all information to perform a successfull request to the endpoint.  
 All environments are stored in the `/env` directory.
 
-Choosing the environment:
+### Defining your environment
+
+You can either edit the [sample.env](./env/sample.env) file or create a new environment.  
+If you used your server data in the previous `Authentication` example, it can be used to create your new environment:
+
+* `protocol`=`https`
+
+    Default should be `https`
+
+* `baseurl`=`yourdomain`
+
+    This should target your roXtra server. If you access roXtra in your browser by `https://yourdomain.com/Roxtra` then `yourdomain.com` should be set.
+
+* `username`=`yourusername`
+
+    The user you want to identify as. Typically your roXtra username.
+
+* `password`=`yourpassword`
+
+    The password of the user. Typically your roXtra password.
+
+* `restService`=`rests`
+
+    Default should be `rests`
+
+* `filePath`=`../Files/sampleText.txt`
+
+    Optional. This must be set if you want to use the [CreateNewDocument](./RoxtraAPI/CreateNewDocument.http) example. Must be a relative path.
+
+In the next step, you choose your new environment. If everything is set up correctly, the next example and all other requests should work.
+
+
+### Choosing your environment
 
 * VSCode:
     - The [httpYac](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac) module enables choosing a predefined environment on the sidebar.
+    - With [httpBook](https://marketplace.visualstudio.com/items?itemName=anweber.httpbook) you can click the `env` symbol below any `http` code block and select your environment.
 
 * CLI:
     - The environment can be chosen with the `-e` option.
