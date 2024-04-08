@@ -18,7 +18,12 @@ All examples are `http` files but markdown code blocks with the `http` tag are a
 An authorization request could be done like this, additional information can be found in the [introduction](./Introduction.http):
 
 ```http
-@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rest
+@protocol = https
+@baseurl = localhost
+@username = administrator
+@password = admin
+
+@host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rests
 
 GET /Authenticate
 Accept: application/json
