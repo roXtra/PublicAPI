@@ -1,0 +1,14 @@
+{
+  "name": "azure-login-sample",
+  "version": "1.0.0",
+  "description": "Node CLI sample for retrieving an azure authorization token which is converted to a roXtra auth token.",
+  "main": "AuthenticationFlow.js",
+  "scripts": {
+    "start": "node AuthenticationFlow.js"
+  },
+  "author": "Roxtra GmbH",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "open": "^8.4.0"
+  }
+}

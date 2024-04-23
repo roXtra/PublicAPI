@@ -29,3 +29,8 @@ GET /Authenticate
 Accept: application/json
 Authorization: Basic {{username}} {{password}}
 ```
+
+
+## Authentication Flow
+
+If you want to test the authentication flow with Azure and roXtra, you can follow [this](/Examples/AzureAuthentication/README.md) example.

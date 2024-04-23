@@ -1,16 +1,53 @@
 /*
 ## Authenticate By Token
 
-Authentication via an Azure Token. This method converts the Azure token into a roXtra token.
+Authentication via an Azure Token. This method converts the Azure token into a roXtra token.  
+You must specify your `authURL`, `tenant` and `oauth2_clientId` (Azure `clientId` / `appId`) to perform a successful login and request.  
+
+
+#### Procedure
+
+Before the request to `/AuthenticateByToken` is made, an azure login is performed in a separate window.  
+This login will return an authentication token.  
+After receiving the token, it is placed inside the request body and the actual request to `/AuthenticateByToken` is made.  
+`/AuthenticateByToken` returns a roXtra authentication token, which can be used for any authenticated request.
 */
+@authURL = https://login.microsoftonline.com
+@tenant = <your tenant>
+@oauth2_clientId = <your client id>
+
+@oauth2_authorizationEndpoint = {{authURL}}/{{tenant}}/oauth2/v2.0/authorize
+@oauth2_tokenEndpoint = {{authURL}}/{{tenant}}/oauth2/v2.0/token
+@oauth2_scope = api://{{oauth2_clientId}}/user_impersonation openid profile offline_access
+@oauth2_audience = {{oauth2_clientId}}
+@oauth2_redirectUri = http://localhost:3000
+
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/{{restService}}
-@token = ""
 
 # @name authentication
+{{@request
+    let authtoken = request.headers.Authorization;
+    delete request.headers.Authorization;
+    authtoken = authtoken.replace('Bearer ', '');
+    request.body = JSON.stringify({
+        "Token": authtoken
+    })
+}}s
 POST /AuthenticateByToken
+Authorization: openid implicit
 Accept: application/json
 Content-Type: application/json
 
-{
-    "Token": {{token}}
-}
+{{
+    $global.authToken = response.parsedBody.LoginToken;
+}}
+/*
+#### The following request uses the roXtra authentication token to retrieve the current logged in user.
+
+See how the authtoken is send with the `authtoken` header, not via `Authorization`.
+*/
+###
+# @ref authentication
+GET /GetMyUser
+Accept: application/json
+authtoken: {{$global.authToken}}
