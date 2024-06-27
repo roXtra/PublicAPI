@@ -1,0 +1,25 @@
+/*
+## Get All Sub Folders Of Folder
+
+Returns all subfolders of a specific folder.  
+A `GetFolderContent` request is made for each folder to traverse deeper into the subfolders.  
+`subFolders` contains parent folder id and _all_ subfolders.
+*/
+@folderID = 100
+
+{{
+    $global.subFolders = [{ Id: folderID }]
+}}
+# @import ../RoxtraAPI/Authenticate.http
+# @ref authentication
+# @loop for subFolder of $global.subFolders
+GET /GetFolderContent/{{subFolder.Id}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}
+
+{{
+    $global.subFolders.push(...response.parsedBody.FoldersList)  
+    for (let folder of response.parsedBody.FoldersList) {
+        console.log(folder.Title + " (" + folder.Id + ")")
+    }
+}}
