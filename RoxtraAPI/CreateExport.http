@@ -13,3 +13,8 @@ Content-Type: application/json
 authtoken: {{authentication.LoginToken}}
 
 1
+/*
+### Examples with this endpoint
+
+* [Create and download an export](../Examples/exportWorkflow.http) - A workflow using the [CreateExport](./CreateExport.http), [GetExport](./GetExport.http) and [DownloadExport](./DownloadExport.http) endpoints for automated export creation.
+*/

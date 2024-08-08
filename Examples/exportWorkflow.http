@@ -1,0 +1,49 @@
+/*
+# Create and download an export
+
+A workflow using the [CreateExport](./CreateExport.http), [GetExport](./GetExport.http) and [DownloadExport](./DownloadExport.http) endpoints for automated export creation.  
+All requests must be authenticated with the given authentication schemes.
+*/
+/*
+### 1. Creating a new export
+
+A new export can be created by sending a `POST` request to the `/Export` endpoint.  
+The endpoint will create an export for the given `userId` and will return an `exportId`. This `exportId` will be needed for the upcoming requests.
+*/
+# @import ../RoxtraAPI/Authenticate.http
+# @ref authentication
+POST /Export
+Accept: application/json
+Content-Type: application/json
+authtoken: {{authentication.LoginToken}}
+
+1
+
+{{
+    $global.exportId = response.parsedBody
+    console.log($global.exportId)
+}}
+/*
+### 2. Checking export status
+
+The exports takes time to complete. The status of an export can be read by sending a `GET` request to `/Export/exportId`.  
+The `exportId` of the previous request is used as a path parameter. An export is ready if the `Status` field of the response is equals to `Finished`.  
+To get a list of all currently available exports, take a look at [GetExports](../RoxtraAPI/GetExports.http).
+*/
+###
+# @import ../RoxtraAPI/Authenticate.http
+# @ref authentication
+GET /Export/{{$global.exportId}}
+Accept: application/json
+authtoken: {{authentication.LoginToken}}
+/*
+### 3. Downloading export
+
+The finished export can be downloaded by sending a `GET` request to `/Export/exportId/data`. A compressed file will be returned.
+*/
+###
+# @import ../RoxtraAPI/Authenticate.http
+# @ref authentication
+GET /Export/{{$global.exportId}}/data
+Accept: application/json
+authtoken: {{authentication.LoginToken}}
