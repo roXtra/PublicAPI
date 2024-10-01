@@ -1,7 +1,7 @@
 /*
-## Update Tree Selection
+## Update Tree Selection (V2)
 
-Endpoint to update tree views in the default system language.
+Endpoint to update tree views in multiple languages.
 Post your complete view in order to update / create entries of the corresponding roXtra view. Entries which are not included in this request are deleted in roXtra.
 
 Entries will be matched by
@@ -14,7 +14,7 @@ Entries will be matched by
 
 # @import ./Authenticate.http
 # @ref authentication
-POST /UpdateTreeSelection/{{selectionID}}?{{preferExternalID}}
+POST /UpdateTreeSelectionV2/{{selectionID}}?{{preferExternalID}}
 Accept: application/json
 Content-Type: application/json
 authtoken: {{authentication.LoginToken}}
@@ -22,28 +22,43 @@ authtoken: {{authentication.LoginToken}}
 [{
     "ID": -1,
     "ExternalID": "",
-    "Text": "Level 1",
+    "Translations": [
+        { "Key": "de-DE", "Value": "Ebene 1" },
+        { "Key": "en-US", "Value": "Level 1" }
+    ],
     "Items": [
         {
             "ID": -1,
             "ExternalID": "",
-            "Text": "Level 1.1",
+            "Translations": [
+                { "Key": "de-DE", "Value": "Ebene 1.1" },
+                { "Key": "en-US", "Value": "Level 1.1" }
+            ],
             "Items": [
                 {
                     "ID": -1,
                     "ExternalID": "",
-                    "Text": "Level 1.1.1",
+                    "Translations": [
+                        { "Key": "de-DE", "Value": "Ebene 1.1.1" },
+                        { "Key": "en-US", "Value": "Level 1.1.1" }
+                    ],
                     "Items": [
                         {
                             "ID": -1,
                             "ExternalID": "",
-                            "Text": "Level 1.1.1.1",
+                            "Translations": [
+                                { "Key": "de-DE", "Value": "Ebene 1.1.1.1" },
+                                { "Key": "en-US", "Value": "Level 1.1.1.1" }
+                            ],
                             "Items": []
                         },
                         {
                             "ID": -1,
                             "ExternalID": "",
-                            "Text": "Level 1.1.1.2",
+                            "Translations": [
+                                { "Key": "de-DE", "Value": "Ebene 1.1.1.2" },
+                                { "Key": "en-US", "Value": "Level 1.1.1.2" }
+                            ],
                             "Items": []
                         }
                     ]
