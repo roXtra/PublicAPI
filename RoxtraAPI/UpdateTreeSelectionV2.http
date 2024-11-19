@@ -14,7 +14,7 @@ Entries will be matched by
 
 # @import ./Authenticate.http
 # @ref authentication
-POST /UpdateTreeSelectionV2/{{selectionID}}?{{preferExternalID}}
+POST /UpdateTreeSelectionV2/{{selectionID}}?preferExternalID={{preferExternalID}}
 Accept: application/json
 Content-Type: application/json
 authtoken: {{authentication.LoginToken}}
