@@ -5,12 +5,27 @@ Returns a list of changed files since a given timestamp.
 
 Parameter | Description
 ----------|----------
-RefDate | Files changed (release date) after this date will be collected. Format: ASP.NET Json Date.
+RefDate | Files changed (release date) after this date will be collected. Format: Microsoft JSON-Date.
 DocTypeIDs | specify doctypes as filter or leave empty to query all doctypes
 ValidStatusID | specify status IDs or leave empty to accept any status. e.g. only released documents = [130]
 */
-@refDate = {{$datetime iso8601 14 d}}
+# Create Microsoft JSON Date Format \/Date(1751491200000+0200)\/ 
 
+{{
+  // Create current date
+  const date = new Date()
+  const timestamp = date.getTime(); // milliseconds since 1970
+
+  const offsetMin = -date.getTimezoneOffset(); // e.g. +120
+  const sign = offsetMin >= 0 ? '+' : '-';
+  const hours = String(Math.floor(Math.abs(offsetMin) / 60)).padStart(2, '0');
+  const minutes = String(Math.abs(offsetMin) % 60).padStart(2, '0');
+  const offset = `${sign}${hours}${minutes}`;
+
+  // Microsoft JSON Date Format
+  exports.RefDate = `\\/Date(${timestamp}${offset})\\/`;
+}}
+###
 # @import ./Authenticate.http
 # @ref authentication
 POST /GetChangedFiles
@@ -19,7 +34,7 @@ Content-Type: application/json
 authtoken: {{authentication.LoginToken}}
 
 {
-    "RefDate":"\/Date({{refDate}})\/",
+    "RefDate": "{{RefDate}}",
     "DocTypeIDs":[],
     "ValidStatusIDs":[130]
 }
