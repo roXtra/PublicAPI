@@ -11,20 +11,26 @@ ValidStatusID | specify status IDs or leave empty to accept any status. e.g. onl
 */
 # Create Microsoft JSON Date Format \/Date(1751491200000+0200)\/ 
 
+/*
+  This block generates a Microsoft JSON Date string for the 'RefDate' parameter in the API request below.
+  The reference date is set to 14 days ago (at midnight) to collect files changed in the last 14 days.
+  The formatted date is used to filter changed files in the /GetChangedFiles API call.
+*/
 {{
   // Create current date
   const date = new Date()
 
-  // current date for reference
+  // Get current date for reference
   const refDate = new Date();
-  // 14 days ago
+  // Set time to 14 days ago
   refDate.setDate(refDate.getDate() - 14);
-  // Set to midnight
-  refDate.setHours(0, 0, 0, 0); // set time to midnight
+  // Set to midnight to ensure date comparison ignores time component
+  refDate.setHours(0, 0, 0, 0); 
 
-  // use timestamp for request
-  const timestamp = refDate.getTime(); // final {{$timestamp}}
+  // Use refDate as timestamp for the RefDate in request
+  const timestamp = refDate.getTime(); 
 
+  // Calculate timezone offset to be compatible with Microsoft JSON Date format
   const offsetMin = -date.getTimezoneOffset(); // e.g. +120
   const sign = offsetMin >= 0 ? '+' : '-';
   const hours = String(Math.floor(Math.abs(offsetMin) / 60)).padStart(2, '0');
