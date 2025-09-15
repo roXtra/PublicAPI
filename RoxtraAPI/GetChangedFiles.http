@@ -14,7 +14,16 @@ ValidStatusID | specify status IDs or leave empty to accept any status. e.g. onl
 {{
   // Create current date
   const date = new Date()
-  const timestamp = date.getTime(); // milliseconds since 1970
+
+  // current date for reference
+  const refDate = new Date(); 
+  // 14 days ago
+  refDate.setDate(refDate.getDate() - 14); 
+  //set to midnight
+  refDate.setHours(0, 0, 0, 0); // set time to midnight
+
+  // use timestamp for request
+  const timestamp = refDate.getTime(); // final {{$timestamp}}
 
   const offsetMin = -date.getTimezoneOffset(); // e.g. +120
   const sign = offsetMin >= 0 ? '+' : '-';
