@@ -19,7 +19,7 @@ ValidStatusID | specify status IDs or leave empty to accept any status. e.g. onl
   const refDate = new Date();
   // 14 days ago
   refDate.setDate(refDate.getDate() - 14); 
-  //set to midnight
+  // Set to midnight
   refDate.setHours(0, 0, 0, 0); // set time to midnight
 
   // use timestamp for request
