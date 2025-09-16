@@ -11,11 +11,9 @@ ValidStatusID | specify status IDs or leave empty to accept any status. e.g. onl
 */
 # Create Microsoft JSON Date Format \/Date(1751491200000+0200)\/ 
 
-/*
-  This block generates a Microsoft JSON Date string for the 'RefDate' parameter in the API request below.
-  The reference date is set to 14 days ago (at midnight) to collect files changed in the last 14 days.
-  The formatted date is used to filter changed files in the /GetChangedFiles API call.
-*/
+# This block generates a Microsoft JSON Date string for the 'RefDate' parameter in the API request below.
+# The reference date is set to 14 days ago (at midnight) to collect files changed in the last 14 days.
+# The formatted date is used to filter changed files in the /GetChangedFiles API call.
 {{
   // Create current date
   const date = new Date()
