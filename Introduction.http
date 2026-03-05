@@ -17,8 +17,8 @@ Ensure 'username' and 'password' are correct to get a valid LoginToken.
 */
 @protocol = https
 @baseurl = localhost
-@username = administrator
-@password = admin
+@username = youruser
+@password = yourpassword
 
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rests
 

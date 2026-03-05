@@ -20,8 +20,8 @@ An authorization request could be done like this, additional information can be 
 ```http
 @protocol = https
 @baseurl = localhost
-@username = administrator
-@password = admin
+@username = youruser
+@password = yourpassword
 
 @host = {{protocol}}://{{baseurl}}/Roxtra/api/roxApi.svc/rests
 
